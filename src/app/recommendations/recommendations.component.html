@@ -1,0 +1,44 @@
+<div class="gradient_bg height_100" style="display: flex;">
+    <div class="container">
+        <!-- <div  class="box">Click me</div> -->
+        <div class="recomendation">
+            <div class="back_button" [routerLink]="['/home']">
+                <mat-icon class="text_white">arrow_back</mat-icon>
+                <p class="text_white">Daily Recomendations</p>
+            </div>
+            <div class="card-stack">
+                <div class="slide_box"></div>
+                <app-profile-card [profile]="profile" (swipeLeft)="swipeLeft('Not Interested')"
+                    (swipeRight)="swipeRight('Interested')">
+                    <div class="image_total">{{this.profile.images ? this.profile.images.length : 0}}</div>
+                    <div class="verified">
+                        <ul>
+                            <li>
+                                <img src="../../assets/images/verified.png" alt="verified">
+                                <p class="text_blue">Verified</p>
+                            </li>
+                            <li>
+                                <img src="../../assets/images/nri_icon.png" alt="premium nri">
+                                <p class="text_purple">Premium NRI</p>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <mat-card-actions class="action_buttons">
+                        <div class="shortlist">
+                            <button mat-flat-button
+                                (click)="shortlist('Shortlisted')"><mat-icon>star</mat-icon>Shortlist</button>
+                        </div>
+                        <div class="buttons">
+                            <p>Like her?</p>
+                            <button mat-stroked-button
+                                (click)="swipeLeft('Not Interested')"><mat-icon class="text_gray">close</mat-icon></button>
+                            <button mat-flat-button class="background_yellow"
+                                (click)="swipeRight('Interested')"><mat-icon class="text_white">check</mat-icon></button>
+                        </div>
+                    </mat-card-actions>
+                </app-profile-card>
+            </div>
+        </div>
+    </div>
+</div>

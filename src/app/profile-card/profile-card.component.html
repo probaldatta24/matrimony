@@ -1,0 +1,12 @@
+<mat-card class="profile_card">
+  <div class="avatar">
+    <img mat-card-image [src]="profile.images ? profile.images[0].url :''" alt="Image">
+    <ng-content select=".image_total"></ng-content>
+  </div>
+    <ng-content select=".verified"></ng-content>
+    <mat-card-content>
+      <mat-card-title>{{profile.name}}</mat-card-title>
+      <p>{{profile.age}} Yrs, {{profile.height}}, {{profile.motherTongue}}, {{profile.caste}}, {{profile.education}}, {{profile.profession}}, {{profile.address}}.</p>
+    </mat-card-content>
+    <ng-content select=".action_buttons"></ng-content>
+  </mat-card>

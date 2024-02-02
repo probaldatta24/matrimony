@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="profile_list background_blue height_100">
+        <div class="page_header">
+            <h3>My Matches</h3>
+            <div class="more">
+                <mat-icon class="text_white">more_vert</mat-icon>
+            </div>
+        </div>
+        <div class="sub_title">
+            <h2 class="text_white">8 profiles pending with me</h2><span class="text_white">5 new</span>
+        </div>
+
+        <swiper-container [slidesPerView]="slidesPerView" [spaceBetween]="30">
+            <ng-container *ngFor="let p of profiles">
+                 <swiper-slide>
+                    <app-profile-card [profile]="p" (click)="onClickProfileCard(p.id)">
+                        <mat-card-actions class="action_buttons">
+                            <button mat-flat-button class="background_yellow text_white">Yes</button>
+                            <button mat-stroked-button (click)="noButtonClick($event)">No</button>
+                          </mat-card-actions>
+                    </app-profile-card>
+                </swiper-slide> 
+            </ng-container>
+        </swiper-container>
+    </div>
+</div>

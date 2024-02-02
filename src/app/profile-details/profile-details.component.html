@@ -1,0 +1,28 @@
+<div class="background_gray height_100">
+  <div class="container">
+    <div class="profile_details">
+      <div class="back_button" [routerLink]="['/home']">
+        <mat-icon>arrow_back</mat-icon>
+        <p>{{profile.id}}</p>
+      </div>
+      <mat-card>
+        <div class="avatar">
+          <swiper-container #swiper slides-per-view="1" pagination="true" pagination-clickable="true"
+            (swiperslidechange)="onSlideChange($event)">
+            <swiper-slide *ngFor="let i of profile.images"><img mat-card-image [src]="i.url" alt="Image" />
+            </swiper-slide>
+          </swiper-container>
+          <span class="image_count text_white">{{currentSlideIndex}}/{{profile.images ? profile.images.length :
+            0}}</span>
+        </div>
+        <mat-card-content>
+          <mat-card-title>
+            <h2>{{profile.name}}</h2>
+          </mat-card-title>
+          <p>{{profile.age}} Yrs, {{profile.height}}, {{profile.motherTongue}}, {{profile.caste}},
+            {{profile.education}}, {{profile.profession}}, {{profile.address}}.</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
